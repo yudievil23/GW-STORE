@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GW STORE – Manutenção e Suporte Técnico 24h</title>
+    <meta name="description" content="GW STORE - Técnico em TI especializado em manutenção de celulares, notebooks e computadores. Assistência Técnica 24 Horas. Tecnologia, confiança e soluções ao seu alcance!">
+    
+    <!-- Google Fonts: Rajdhani (Tecnológica para títulos) e Inter (Leitura limpa) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Rajdhani:wght@600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Font Awesome para ícones técnicos e WhatsApp -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Configuração personalizada do Tailwind -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        techOrange: '#FF6A00',
+                        techOrangeHover: '#E55E00',
+                        matteBlack: '#171717',
+                        graphiteGray: '#343434',
+                        graphiteDark: '#242424',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        tech: ['Rajdhani', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Estilos Customizados para Iluminação Neon/Tech e Animações -->
+    <style>
+        body {
+            background-color: #171717;
+            color: #FFFFFF;
+            overflow-x: hidden;
+        }
+
+        /* Padrão de circuito tecnológico sutil no fundo */
+        .tech-grid-bg {
+            background-image: 
+                radial-gradient(rgba(255, 106, 0, 0.08) 1px, transparent 1px),
+                linear-gradient(to right, rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            background-size: 32px 32px, 64px 64px, 64px 64px;
+        }
+
+        /* Efeito de brilho laranja tecnológico */
+        .orange-glow {
+            box-shadow: 0 0 25px rgba(255, 106, 0, 0.45);
+            transition: all 0.3s ease;
+        }
+        .orange-glow:hover {
+            box-shadow: 0 0 38px rgba(255, 106, 0, 0.75);
+            transform: translateY(-2px);
+        }
+
+        .orange-border-glow {
+            border: 1px solid rgba(255, 106, 0, 0.35);
+            box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.7), inset 0 0 15px rgba(255, 106, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        .orange-border-glow:hover {
+            border-color: #FF6A00;
+            box-shadow: 0 12px 35px -5px rgba(255, 106, 0, 0.2), inset 0 0 20px rgba(255, 106, 0, 0.1);
+        }
+
+        /* Animação pulsante para badge 24h */
+        @keyframes pulse-orange {
+            0%, 100% {
+                box-shadow: 0 0 0 0 rgba(255, 106, 0, 0.7);
+            }
+            50% {
+                box-shadow: 0 0 0 12px rgba(255, 106, 0, 0);
+            }
+        }
+        .animate-pulse-orange {
+            animation: pulse-orange 2s infinite;
+        }
+
+        /* Classes para animação de entrada (Scroll Reveal) */
+        .reveal {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: all 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Barra de rolagem personalizada */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #171717;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #343434;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #FF6A00;
+        }
+    </style>
+</head>
+<body class="tech-grid-bg antialiased selection:bg-techOrange selection:text-white">
+
+    <!-- ==================== CABEÇALHO / NAVEGAÇÃO ==================== -->
+    <header class="fixed top-0 left-0 right-0 z-50 bg-matteBlack/90 backdrop-blur-md border-b border-graphiteGray/80">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logotipo / Marca -->
+                <a href="#inicio" class="flex items-center gap-3 group">
+                    <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-techOrange to-orange-700 flex items-center justify-center text-white shadow-lg shadow-techOrange/30 group-hover:scale-105 transition-transform">
+                        <i class="fa-solid fa-microchip text-xl"></i>
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-2">
+                            <span class="font-tech font-extrabold text-2xl sm:text-3xl tracking-wider text-white">GW <span class="text-techOrange">STORE</span></span>
+                            <span class="hidden sm:inline-block text-[10px] font-bold uppercase tracking-widest px-2 py-0.5 rounded bg-graphiteGray text-techOrange border border-techOrange/40">TI & HARDWARE</span>
+                        </div>
+                        <p class="text-[11px] text-gray-400 tracking-wide uppercase -mt-1">Manutenção e Suporte Técnico</p>
+                    </div>
+                </a>
+
+                <!-- Menu Desktop -->
+                <nav class="hidden md:flex items-center space-x-8">
+                    <a href="#inicio" class="text-sm font-medium text-gray-300 hover:text-techOrange transition-colors">Início</a>
+                    <a href="#sobre" class="text-sm font-medium text-gray-300 hover:text-techOrange transition-colors">Sobre Mim</a>
+                    <a href="#servicos" class="text-sm font-medium text-gray-300 hover:text-techOrange transition-colors">Áreas de Atuação</a>
+                    <a href="#plantao24h" class="text-sm font-semibold text-techOrange hover:text-orange-400 transition-colors flex items-center gap-1.5">
+                        <span class="w-2 h-2 rounded-full bg-techOrange animate-ping"></span>
+                        Plantão 24h
+                    </a>
+                    <a href="#contato" class="text-sm font-medium text-gray-300 hover:text-techOrange transition-colors">Contato</a>
+                </nav>
+
+                <!-- Botão Ação Rápida Desktop + Botão Menu Mobile -->
+                <div class="flex items-center gap-3">
+                    <a href="https://wa.me/5592995305578" target="_blank" rel="noopener noreferrer" 
+                       class="hidden sm:inline-flex items-center gap-2 bg-techOrange hover:bg-techOrangeHover text-white font-semibold text-sm px-4 py-2.5 rounded-xl orange-glow">
+                        <i class="fa-brands fa-whatsapp text-lg"></i>
+                        <span>WhatsApp</span>
+                    </a>
+
+                    <!-- Botão Hambúrguer Mobile -->
+                    <button id="mobile-menu-btn" aria-label="Abrir Menu" class="md:hidden p-2.5 rounded-xl bg-graphiteGray text-white hover:text-techOrange focus:outline-none">
+                        <i class="fa-solid fa-bars text-xl" id="menu-icon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Menu Mobile Dropdown -->
+        <div id="mobile-menu" class="hidden md:hidden bg-graphiteDark border-b border-graphiteGray px-4 pt-3 pb-6 space-y-3">
+            <div class="pb-2 border-b border-graphiteGray/60 flex items-center justify-between">
+                <span class="text-xs font-bold uppercase tracking-widest text-techOrange">GW STORE – PORTFÓLIO PROFISSIONAL</span>
+            </div>
+            <a href="#inicio" class="mobile-link block py-2.5 px-3 rounded-lg text-base font-medium text-white hover:bg-graphiteGray hover:text-techOrange">Início</a>
+            <a href="#sobre" class="mobile-link block py-2.5 px-3 rounded-lg text-base font-medium text-white hover:bg-graphiteGray hover:text-techOrange">Sobre Mim</a>
+            <a href="#servicos" class="mobile-link block py-2.5 px-3 rounded-lg text-base font-medium text-white hover:bg-graphiteGray hover:text-techOrange">Áreas de Atuação</a>
+            <a href="#plantao24h" class="mobile-link block py-2.5 px-3 rounded-lg text-base font-semibold text-techOrange bg-techOrange/10">🚨 Assistência Técnica 24 Horas</a>
+            <a href="#contato" class="mobile-link block py-2.5 px-3 rounded-lg text-base font-medium text-white hover:bg-graphiteGray hover:text-techOrange">Contato</a>
+            <a href="https://wa.me/5592995305578" target="_blank" rel="noopener noreferrer" 
+               class="flex items-center justify-center gap-2 w-full bg-techOrange text-white font-bold py-3.5 rounded-xl mt-2 shadow-lg">
+                <i class="fa-brands fa-whatsapp text-xl"></i>
+                <span>(92) 99530-5578</span>
+            </a>
+        </div>
+    </header>
+
+    <!-- ==================== SEÇÃO HERO (ALTO IMPACTO) ==================== -->
+    <section id="inicio" class="relative pt-28 pb-20 lg:pt-36 lg:pb-28 overflow-hidden">
+        <!-- Luzes ambientais radiais laranja -->
+        <div class="absolute top-20 -left-32 w-96 h-96 bg-techOrange/20 rounded-full blur-[130px] pointer-events-none"></div>
+        <div class="absolute bottom-10 right-0 w-96 h-96 bg-techOrange/15 rounded-full blur-[140px] pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Coluna de Texto Principal -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <!-- Badge GW STORE + Plantão 24h -->
+                    <div class="flex flex-wrap items-center justify-center lg:justify-start gap-3">
+                        <span class="px-3.5 py-1.5 rounded-full bg-graphiteGray border border-gray-600 text-xs font-bold tracking-widest uppercase text-gray-200">
+                            GW STORE – PORTFÓLIO PROFISSIONAL
+                        </span>
+                        <a href="#plantao24h" class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-techOrange/15 border border-techOrange text-techOrange text-xs font-extrabold tracking-wider uppercase animate-pulse-orange">
+                            <span>🚨 ASSISTÊNCIA TÉCNICA 24 HORAS</span>
+                        </a>
+                    </div>
+
+                    <!-- Título Principal -->
+                    <div class="space-y-2">
+                        <h1 class="font-tech font-extrabold text-5xl sm:text-6xl lg:text-7xl tracking-tight text-white leading-none">
+                            GW <span class="text-techOrange drop-shadow-[0_0_20px_rgba(255,106,0,0.45)]">STORE</span>
+                        </h1>
+                        <h2 class="text-xl sm:text-2xl lg:text-3xl font-semibold text-gray-200 leading-snug">
+                            Técnico em TI <span class="text-techOrange font-bold">|</span> Manutenção de Celulares, Notebooks e Computadores
+                        </h2>
+                    </div>
+
+                    <!-- Frase de Impacto -->
+                    <div class="p-4 rounded-2xl bg-graphiteGray/60 border-l-4 border-techOrange backdrop-blur-sm max-w-2xl mx-auto lg:mx-0">
+                        <p class="font-tech font-bold text-lg sm:text-xl tracking-wide text-white uppercase">
+                            "TECNOLOGIA, CONFIANÇA E SOLUÇÕES AO SEU ALCANCE!"
+                        </p>
+                    </div>
+
+                    <p class="text-gray-300 text-base sm:text-lg max-w-2xl mx-auto lg:mx-0 leading-relaxed">
+                        Diagnóstico preciso, reparos avançados em hardware e otimização completa de sistemas com atendimento ágil, transparente e disponível 24 horas para emergências.
+                    </p>
+
+                    <!-- Botões CTA -->
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-2">
+                        <a href="https://wa.me/5592995305578" target="_blank" rel="noopener noreferrer" 
+                           class="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-techOrange hover:bg-techOrangeHover text-white font-bold text-base sm:text-lg px-7 py-4 rounded-2xl orange-glow">
+                            <i class="fa-brands fa-whatsapp text-2xl"></i>
+                            <span>Chamar no WhatsApp (92) 99530-5578</span>
+                        </a>
+                        <a href="#servicos" 
+                           class="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-graphiteGray hover:bg-graphiteGray/80 text-white font-semibold text-base px-7 py-4 rounded-2xl border border-gray-600 hover:border-techOrange transition-all">
+                            <i class="fa-solid fa-screwdriver-wrench text-techOrange"></i>
+                            <span>Ver Serviços</span>
+                        </a>
+                    </div>
+
+                    <!-- Indicadores Rápidos -->
+                    <div class="grid grid-cols-3 gap-4 pt-6 border-t border-graphiteGray/80 max-w-lg mx-auto lg:mx-0">
+                        <div>
+                            <p class="font-tech font-extrabold text-2xl sm:text-3xl text-techOrange">24H</p>
+                            <p class="text-xs text-gray-400 uppercase tracking-wider">Suporte Técnico</p>
+                        </div>
+                        <div>
+                            <p class="font-tech font-extrabold text-2xl sm:text-3xl text-white">100%</p>
+                            <p class="text-xs text-gray-400 uppercase tracking-wider">Transparência</p>
+                        </div>
+                        <div>
+                            <p class="font-tech font-extrabold text-2xl sm:text-3xl text-techOrange">TI</p>
+                            <p class="text-xs text-gray-400 uppercase tracking-wider">Hardware & Software</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Coluna Visual Realista (Bancada / Placa / Reparo) -->
+                <div class="lg:col-span-5 relative">
+                    <div class="relative rounded-3xl overflow-hidden orange-border-glow bg-graphiteGray p-2">
+                        <div class="relative rounded-2xl overflow-hidden aspect-[4/3] sm:aspect-square lg:aspect-[4/4]">
+                            <img src="https://i.pinimg.com/736x/2d/f5/1a/2df51a66c09ff1c2e336c27309603df1.jpg" 
+                                 onerror="this.src='https://placehold.co/800x800/343434/FF6A00?text=GW+STORE+HARDWARE'"
+                                 alt="Manutenção de placa eletrônica e hardware técnico" 
+                                 class="w-full h-full object-cover object-center transform hover:scale-105 transition-transform duration-700">
+                            <!-- Overlay tecnológico escuro com gradiente laranja -->
+                            <div class="absolute inset-0 bg-gradient-to-t from-matteBlack via-matteBlack/30 to-transparent"></div>
+                            
+                            <!-- Card Flutuante sobre a imagem -->
+                            <div class="absolute bottom-4 left-4 right-4 bg-matteBlack/90 backdrop-blur-md border border-techOrange/50 rounded-2xl p-4 flex items-center justify-between">
+                                <div class="flex items-center gap-3">
+                                    <div class="w-10 h-10 rounded-xl bg-techOrange/20 border border-techOrange flex items-center justify-center text-techOrange">
+                                        <i class="fa-solid fa-bolt text-lg"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-xs text-gray-400 uppercase font-semibold">Atendimento Especializado</p>
+                                        <p class="text-sm font-bold text-white">Smartphones • Notebooks • PCs</p>
+                                    </div>
+                                </div>
+                                <span class="px-2.5 py-1 rounded-lg bg-techOrange text-white font-tech font-bold text-xs">ONLINE</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SEÇÃO SOBRE MIM (YUDI) ==================== -->
+    <section id="sobre" class="py-20 bg-graphiteDark/70 border-y border-graphiteGray/70 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center reveal">
+                
+                <!-- Imagem Técnica de Bancada / Ferramentas -->
+                <div class="lg:col-span-5 order-2 lg:order-1">
+                    <div class="relative rounded-3xl overflow-hidden orange-border-glow bg-graphiteGray p-2">
+                        <img src="https://i.pinimg.com/736x/cb/cd/8b/cbcd8be4b5f6db5f1301e25234d241bf.jpg" 
+                             onerror="this.src='https://placehold.co/800x650/343434/FF6A00?text=TECNICO+EM+TI'"
+                             alt="Ferramentas de precisão e manutenção de eletrônicos" 
+                             class="w-full h-80 sm:h-96 object-cover rounded-2xl">
+                        <div class="absolute inset-0 bg-gradient-to-tr from-matteBlack/80 via-transparent to-techOrange/10 rounded-2xl pointer-events-none"></div>
+                        <div class="absolute bottom-5 left-5 right-5 flex items-center gap-3 bg-graphiteGray/95 border border-gray-600 p-3.5 rounded-xl">
+                            <i class="fa-solid fa-shield-halved text-2xl text-techOrange"></i>
+                            <div>
+                                <p class="text-sm font-bold text-white">Compromisso & Responsabilidade</p>
+                                <p class="text-xs text-gray-300">Soluções técnicas com total transparência</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Texto de Apresentação do Yudi -->
+                <div class="lg:col-span-7 order-1 lg:order-2 space-y-6">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-techOrange/15 border border-techOrange/40 text-techOrange text-xs font-bold uppercase tracking-wider">
+                        <i class="fa-solid fa-user-gear"></i>
+                        <span>Sobre o Profissional</span>
+                    </div>
+
+                    <h2 class="font-tech font-extrabold text-3xl sm:text-5xl text-white">
+                        Olá! Meu nome é <span class="text-techOrange">Yudi</span>
+                    </h2>
+
+                    <div class="space-y-4 text-gray-200 text-base sm:text-lg leading-relaxed">
+                        <p>
+                            Olá! Meu nome é <strong class="text-white">Yudi</strong> e sou profissional da área de <strong class="text-techOrange">Tecnologia da Informação (TI)</strong>, com atuação em manutenção de dispositivos eletrônicos, suporte técnico e soluções em informática.
+                        </p>
+                        <p>
+                            Trabalho com diagnóstico, identificação e resolução de problemas em equipamentos tecnológicos, realizando reparos, substituição de componentes e configurações de sistemas.
+                        </p>
+                        <p>
+                            Meu objetivo é oferecer serviços de qualidade, com <strong class="text-white">responsabilidade, transparência e compromisso</strong>, buscando sempre acompanhar a evolução da tecnologia e aprimorar meus conhecimentos profissionais.
+                        </p>
+                    </div>
+
+                    <!-- Cards / Badges de Diferenciais -->
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-3">
+                        <div class="bg-graphiteGray p-4 rounded-2xl border border-gray-600/70 flex items-start gap-3.5 hover:border-techOrange transition-colors">
+                            <div class="w-10 h-10 rounded-xl bg-techOrange/20 text-techOrange flex items-center justify-center shrink-0 mt-0.5">
+                                <i class="fa-solid fa-magnifying-glass-chart"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-white text-base">Diagnóstico Preciso</h3>
+                                <p class="text-xs text-gray-300 mt-0.5">Identificação exata de falhas em hardware e software.</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-graphiteGray p-4 rounded-2xl border border-gray-600/70 flex items-start gap-3.5 hover:border-techOrange transition-colors">
+                            <div class="w-10 h-10 rounded-xl bg-techOrange/20 text-techOrange flex items-center justify-center shrink-0 mt-0.5">
+                                <i class="fa-solid fa-handshake"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-white text-base">Transparência Total</h3>
+                                <p class="text-xs text-gray-300 mt-0.5">Explicação clara do problema e orçamento justo.</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-graphiteGray p-4 rounded-2xl border border-gray-600/70 flex items-start gap-3.5 hover:border-techOrange transition-colors">
+                            <div class="w-10 h-10 rounded-xl bg-techOrange/20 text-techOrange flex items-center justify-center shrink-0 mt-0.5">
+                                <i class="fa-solid fa-clock"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-white text-base">Atendimento 24 Horas</h3>
+                                <p class="text-xs text-gray-300 mt-0.5">Suporte disponível quando você mais precisa.</p>
+                            </div>
+                        </div>
+
+                        <div class="bg-graphiteGray p-4 rounded-2xl border border-gray-600/70 flex items-start gap-3.5 hover:border-techOrange transition-colors">
+                            <div class="w-10 h-10 rounded-xl bg-techOrange/20 text-techOrange flex items-center justify-center shrink-0 mt-0.5">
+                                <i class="fa-solid fa-award"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-white text-base">Qualidade Garantida</h3>
+                                <p class="text-xs text-gray-300 mt-0.5">Ferramentas adequadas e peças de alta confiabilidade.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SEÇÃO ÁREAS DE ATUAÇÃO (SERVIÇOS) ==================== -->
+    <section id="servicos" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Cabeçalho da Seção -->
+            <div class="text-center max-w-3xl mx-auto mb-16 space-y-4 reveal">
+                <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-graphiteGray border border-techOrange/40 text-techOrange text-xs font-bold uppercase tracking-widest">
+                    <i class="fa-solid fa-wrench"></i>
+                    <span>Especialidades Técnicas</span>
+                </span>
+                <h2 class="font-tech font-extrabold text-4xl sm:text-5xl text-white">
+                    🔧 ÁREAS DE <span class="text-techOrange">ATUAÇÃO</span>
+                </h2>
+                <p class="text-gray-300 text-base sm:text-lg">
+                    Soluções completas em manutenção física de equipamentos e suporte lógico para manter seus dispositivos operando com máxima performance.
+                </p>
+            </div>
+
+            <!-- Grid dos 2 Blocos Principais (Hardware & Software) -->
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16 reveal">
+                
+                <!-- CARD 1: MANUTENÇÃO DE HARDWARE -->
+                <div class="bg-graphiteGray rounded-3xl p-7 sm:p-9 orange-border-glow flex flex-col justify-between relative overflow-hidden">
+                    <!-- Detalhe luminoso no canto -->
+                    <div class="absolute -top-16 -right-16 w-44 h-44 bg-techOrange/15 rounded-full blur-2xl pointer-events-none"></div>
+
+                    <div>
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="w-14 h-14 rounded-2xl bg-techOrange text-white flex items-center justify-center text-2xl shadow-lg shadow-techOrange/30 shrink-0">
+                                <i class="fa-solid fa-screwdriver-wrench"></i>
+                            </div>
+                            <div>
+                                <span class="text-xs font-bold uppercase tracking-widest text-techOrange">Reparo Físico & Componentes</span>
+                                <h3 class="font-tech font-extrabold text-2xl sm:text-3xl text-white">Manutenção de Hardware</h3>
+                            </div>
+                        </div>
+
+                        <ul class="space-y-4 text-gray-100">
+                            <li class="flex items-start gap-3.5 p-3 rounded-xl bg-matteBlack/40 border border-white/5">
+                                <i class="fa-solid fa-circle-check text-techOrange mt-1 text-lg"></i>
+                                <span class="font-medium">Manutenção de smartphones.</span>
+                            </li>
+                            <li class="flex items-start gap-3.5 p-3 rounded-xl bg-matteBlack/40 border border-white/5">
+                                <i class="fa-solid fa-circle-check text-techOrange mt-1 text-lg"></i>
+                                <span class="font-medium">Manutenção de notebooks e computadores.</span>
+                            </li>
+                            <li class="flex items-start gap-3.5 p-3 rounded-xl bg-matteBlack/40 border border-white/5">
+                                <i class="fa-solid fa-circle-check text-techOrange mt-1 text-lg"></i>
+                                <span class="font-medium">Diagnóstico de defeitos e falhas técnicas.</span>
+                            </li>
+                            <li class="flex items-start gap-3.5 p-3 rounded-xl bg-matteBlack/40 border border-white/5">
+                                <i class="fa-solid fa-circle-check text-techOrange mt-1 text-lg"></i>
+                                <span class="font-medium">Troca de telas, baterias e conectores.</span>
+                            </li>
+                            <li class="flex items-start gap-3.5 p-3 rounded-xl bg-matteBlack/40 border border-white/5">
+                                <i class="fa-solid fa-circle-check text-techOrange mt-1 text-lg"></i>
+                                <span class="font-medium">Reparo e substituição de componentes.</span>
+                            </li>
+                            <li class="flex items-start gap-3.5 p-3 rounded-xl bg-matteBlack/40 border border-white/5">
+                                <i class="fa-solid fa-circle-check text-techOrange mt-1 text-lg"></i>
+                                <span class="font-medium">Manutenção preventiva e corretiva.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="mt-8 pt-5 border-t border-gray-600/60">
+                        <a href="https://wa.me/5592995305578?text=Ol%C3%A1%20Yudi!%20Preciso%20de%20um%20or%C3%A7amento%20para%20Manuten%C3%A7%C3%A3o%20de%20Hardware." 
+                           target="_blank" rel="noopener noreferrer"
+                           class="w-full inline-flex items-center justify-center gap-2 py-3.5 px-5 rounded-xl bg-matteBlack hover:bg-techOrange text-white font-semibold border border-techOrange/50 hover:border-techOrange transition-all">
+                            <i class="fa-brands fa-whatsapp text-lg"></i>
+                            <span>Solicitar Reparo de Hardware</span>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- CARD 2: SOFTWARE E SUPORTE TÉCNICO -->
+                <div class="bg-graphiteGray rounded-3xl p-7 sm:p-9 orange-border-glow flex flex-col justify-between relative overflow-hidden">
+                    <!-- Detalhe luminoso no canto -->
+                    <div class="absolute -top-16 -right-16 w-44 h-44 bg-techOrange/15 rounded-full blur-2xl pointer-events-none"></div>
+
+                    <div>
+                        <div class="flex items-center gap-4 mb-6">
+                            <div class="w-14 h-14 rounded-2xl bg-techOrange text-white flex items-center justify-center text-2xl shadow-lg shadow-techOrange/30 shrink-0">
+                                <i class="fa-solid fa-laptop-code"></i>
+                            </div>
+                            <div>
+                                <span class="text-xs font-bold uppercase tracking-widest text-techOrange">Sistemas & Desempenho</span>
+                                <h3 class="font-tech font-extrabold text-2xl sm:text-3xl text-white">Software e Suporte Técnico</h3>
+                            </div>
+                        </div>
+
+                        <ul class="space-y-4 text-gray-100">
+                            <li class="flex items-start gap-3.5 p-3 rounded-xl bg-matteBlack/40 border border-white/5">
+                                <i class="fa-solid fa-circle-check text-techOrange mt-1 text-lg"></i>
+                                <span class="font-medium">Instalação e configuração de softwares.</span>
+                            </li>
+                            <li class="flex items-start gap-3.5 p-3 rounded-xl bg-matteBlack/40 border border-white/5">
+                                <i class="fa-solid fa-circle-check text-techOrange mt-1 text-lg"></i>
+                                <span class="font-medium">Formatação e otimização de computadores.</span>
+                            </li>
+                            <li class="flex items-start gap-3.5 p-3 rounded-xl bg-matteBlack/40 border border-white/5">
+                                <i class="fa-solid fa-circle-check text-techOrange mt-1 text-lg"></i>
+                                <span class="font-medium">Configuração de sistemas e dispositivos.</span>
+                            </li>
+                            <li class="flex items-start gap-3.5 p-3 rounded-xl bg-matteBlack/40 border border-white/5">
+                                <i class="fa-solid fa-circle-check text-techOrange mt-1 text-lg"></i>
+                                <span class="font-medium">Identificação e correção de problemas de software.</span>
+                            </li>
+                            <li class="flex items-start gap-3.5 p-3 rounded-xl bg-matteBlack/40 border border-white/5">
+                                <i class="fa-solid fa-circle-check text-techOrange mt-1 text-lg"></i>
+                                <span class="font-medium">Suporte técnico e orientação aos usuários.</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="mt-8 pt-5 border-t border-gray-600/60">
+                        <a href="https://wa.me/5592995305578?text=Ol%C3%A1%20Yudi!%20Preciso%20de%20Suporte%20T%C3%A9cnico%20e%20Software." 
+                           target="_blank" rel="noopener noreferrer"
+                           class="w-full inline-flex items-center justify-center gap-2 py-3.5 px-5 rounded-xl bg-matteBlack hover:bg-techOrange text-white font-semibold border border-techOrange/50 hover:border-techOrange transition-all">
+                            <i class="fa-brands fa-whatsapp text-lg"></i>
+                            <span>Solicitar Suporte de Software</span>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Galeria Visual de Equipamentos e Bancada -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 reveal">
+                <!-- Foto 1: Manutenção de Celulares -->
+                <div class="group relative rounded-2xl overflow-hidden bg-graphiteGray border border-gray-700 hover:border-techOrange transition-all">
+                    <div class="aspect-[16/10] overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?auto=format&fit=crop&w=800&q=80" 
+                             onerror="this.src='https://placehold.co/600x400/343434/FF6A00?text=Manutencao+Smartphones'"
+                             alt="Manutenção de smartphones e troca de telas" 
+                             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-4 bg-graphiteGray">
+                        <div class="flex items-center gap-2 text-techOrange text-xs font-bold uppercase mb-1">
+                            <i class="fa-solid fa-mobile-screen-button"></i>
+                            <span>Smartphones</span>
+                        </div>
+                        <h4 class="font-bold text-white">Reparo de Celulares</h4>
+                        <p class="text-xs text-gray-300 mt-1">Troca de telas, baterias, conectores de carga e diagnóstico interno.</p>
+                    </div>
+                </div>
+
+                <!-- Foto 2: Notebooks Abertos -->
+                <div class="group relative rounded-2xl overflow-hidden bg-graphiteGray border border-gray-700 hover:border-techOrange transition-all">
+                    <div class="aspect-[16/10] overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1593642632823-8f785ba67e45?auto=format&fit=crop&w=800&q=80" 
+                             onerror="this.src='https://placehold.co/600x400/343434/FF6A00?text=Notebooks+e+PCs'"
+                             alt="Manutenção interna de notebooks e computadores" 
+                             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-4 bg-graphiteGray">
+                        <div class="flex items-center gap-2 text-techOrange text-xs font-bold uppercase mb-1">
+                            <i class="fa-solid fa-laptop"></i>
+                            <span>Notebooks & PCs</span>
+                        </div>
+                        <h4 class="font-bold text-white">Manutenção Preventiva e Corretiva</h4>
+                        <p class="text-xs text-gray-300 mt-1">Limpeza interna, troca de pasta térmica, upgrade de SSD/RAM e formatação.</p>
+                    </div>
+                </div>
+
+                <!-- Foto 3: Placas Eletrônicas e Circuitos -->
+                <div class="group relative rounded-2xl overflow-hidden bg-graphiteGray border border-gray-700 hover:border-techOrange transition-all sm:col-span-2 lg:col-span-1">
+                    <div class="aspect-[16/10] overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80" 
+                             onerror="this.src='https://placehold.co/600x400/343434/FF6A00?text=Placas+e+Circuitos'"
+                             alt="Placas eletrônicas e circuitos de precisão" 
+                             class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                    </div>
+                    <div class="p-4 bg-graphiteGray">
+                        <div class="flex items-center gap-2 text-techOrange text-xs font-bold uppercase mb-1">
+                            <i class="fa-solid fa-microchip"></i>
+                            <span>Eletrônica & Circuitos</span>
+                        </div>
+                        <h4 class="font-bold text-white">Análise de Placas e Componentes</h4>
+                        <p class="text-xs text-gray-300 mt-1">Identificação precisa de curtos, falhas técnicas e substituição de componentes.</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ==================== SEÇÃO DESTAQUE: ASSISTÊNCIA TÉCNICA 24 HORAS ==================== -->
+    <section id="plantao24h" class="py-16 px-4 sm:px-6 lg:px-8 reveal">
+        <div class="max-w-6xl mx-auto">
+            <div class="relative rounded-3xl overflow-hidden bg-gradient-to-br from-graphiteGray via-matteBlack to-graphiteGray border-2 border-techOrange shadow-[0_0_50px_rgba(255,106,0,0.28)] p-8 sm:p-12 lg:p-16 text-center">
+                
+                <!-- Brilho radial de fundo -->
+                <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,106,0,0.18)_0%,transparent_70%)] pointer-events-none"></div>
+
+                <div class="relative z-10 max-w-3xl mx-auto space-y-6">
+                    <!-- Badge de Alerta -->
+                    <div class="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-techOrange text-white font-extrabold text-xs sm:text-sm tracking-widest uppercase shadow-lg animate-pulse-orange">
+                        <span>🚨 PLANTÃO DE ATENDIMENTO IMEDIATO</span>
+                    </div>
+
+                    <!-- Título Principal -->
+                    <h2 class="font-tech font-extrabold text-3xl sm:text-5xl lg:text-6xl text-white tracking-tight">
+                        🚨 ASSISTÊNCIA TÉCNICA <span class="text-techOrange">24 HORAS</span>
+                    </h2>
+
+                    <!-- Perguntas de Chamada -->
+                    <div class="space-y-2 pt-2">
+                        <p class="text-xl sm:text-2xl font-bold text-white">
+                            Seu celular apresentou defeito? Seu notebook está lento ou parou de funcionar?
+                        </p>
+                        <p class="text-lg sm:text-xl font-extrabold text-techOrange uppercase tracking-wide">
+                            Entre em contato e solicite atendimento!
+                        </p>
+                    </div>
+
+                    <!-- Texto de Apoio -->
+                    <p class="text-gray-200 text-base sm:text-lg leading-relaxed max-w-2xl mx-auto">
+                        Trabalho buscando oferecer soluções eficientes, atendimento transparente e serviços realizados com dedicação e responsabilidade.
+                    </p>
+
+                    <!-- Botão Grande de WhatsApp -->
+                    <div class="pt-4">
+                        <a href="https://wa.me/5592995305578?text=Ol%C3%A1%20Yudi!%20Preciso%20de%20Assist%C3%AAncia%20T%C3%A9cnica%2024%20Horas." 
+                           target="_blank" rel="noopener noreferrer"
+                           class="inline-flex items-center justify-center gap-3.5 bg-techOrange hover:bg-techOrangeHover text-white font-extrabold text-lg sm:text-xl px-8 sm:px-10 py-5 rounded-2xl orange-glow">
+                            <i class="fa-brands fa-whatsapp text-3xl"></i>
+                            <span>SOLICITAR ATENDIMENTO AGORA</span>
+                        </a>
+                        <p class="text-xs text-gray-400 mt-3">Clique para falar diretamente pelo WhatsApp: (92) 99530-5578</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== SEÇÃO CONTATO E ORÇAMENTO RÁPIDO ==================== -->
+    <section id="contato" class="py-20 bg-graphiteDark/80 border-t border-graphiteGray">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start reveal">
+                
+                <!-- Informações de Contato Direto -->
+                <div class="lg:col-span-6 space-y-6">
+                    <span class="inline-flex items-center gap-2 px-3.5 py-1 rounded-full bg-techOrange/15 border border-techOrange/40 text-techOrange text-xs font-bold uppercase tracking-wider">
+                        <span>📲 Fale Comigo</span>
+                    </span>
+
+                    <h2 class="font-tech font-extrabold text-4xl sm:text-5xl text-white">
+                        📲 ENTRE EM <span class="text-techOrange">CONTATO</span>
+                    </h2>
+
+                    <div class="p-6 rounded-2xl bg-graphiteGray border-l-4 border-techOrange space-y-2">
+                        <p class="text-xs font-bold uppercase tracking-widest text-gray-400">PORTFÓLIO PROFISSIONAL DE TI</p>
+                        <h3 class="font-tech font-extrabold text-2xl sm:text-3xl text-white">
+                            GW STORE – <span class="text-techOrange">MANUTENÇÃO E SUPORTE TÉCNICO</span>
+                        </h3>
+                        <p class="text-sm text-gray-300">
+                            Atendimento rápido e especializado para celulares, notebooks e computadores.
+                        </p>
+                    </div>
+
+                    <!-- Card Clicável do WhatsApp -->
+                    <a href="https://wa.me/5592995305578" target="_blank" rel="noopener noreferrer" 
+                       class="block p-6 rounded-2xl bg-matteBlack border border-techOrange/50 hover:border-techOrange group transition-all">
+                        <div class="flex items-center justify-between">
+                            <div class="flex items-center gap-4">
+                                <div class="w-14 h-14 rounded-2xl bg-techOrange text-white flex items-center justify-center text-3xl group-hover:scale-110 transition-transform">
+                                    <i class="fa-brands fa-whatsapp"></i>
+                                </div>
+                                <div>
+                                    <p class="text-xs font-bold uppercase tracking-wider text-techOrange">WhatsApp Oficial (24 Horas)</p>
+                                    <p class="font-tech font-extrabold text-2xl sm:text-3xl text-white mt-0.5">(92) 99530-5578</p>
+                                    <p class="text-xs text-gray-400 mt-0.5">https://wa.me/5592995305578</p>
+                                </div>
+                            </div>
+                            <i class="fa-solid fa-arrow-up-right-from-square text-gray-400 group-hover:text-techOrange text-xl transition-colors"></i>
+                        </div>
+                    </a>
+
+                    <!-- Slogan Destacado -->
+                    <div class="pt-2">
+                        <p class="font-tech font-extrabold text-xl sm:text-2xl text-techOrange tracking-wide">
+                            TECNOLOGIA, CONFIANÇA E SOLUÇÕES AO SEU ALCANCE!
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Formulário Interativo Gerador de Mensagem WhatsApp -->
+                <div class="lg:col-span-6">
+                    <div class="bg-graphiteGray rounded-3xl p-6 sm:p-8 orange-border-glow">
+                        <div class="mb-6">
+                            <h3 class="font-tech font-extrabold text-2xl text-white flex items-center gap-2">
+                                <i class="fa-solid fa-paper-plane text-techOrange"></i>
+                                <span>Agilizar Atendimento no WhatsApp</span>
+                            </h3>
+                            <p class="text-sm text-gray-300 mt-1">
+                                Preencha os dados abaixo para iniciar a conversa já com a descrição do seu equipamento.
+                            </p>
+                        </div>
+
+                        <form id="whatsapp-form" class="space-y-4">
+                            <div>
+                                <label for="client-name" class="block text-xs font-bold uppercase tracking-wider text-gray-300 mb-1.5">Seu Nome</label>
+                                <input type="text" id="client-name" required placeholder="Ex: Carlos Silva"
+                                       class="w-full px-4 py-3 rounded-xl bg-matteBlack border border-gray-600 text-white placeholder-gray-500 focus:outline-none focus:border-techOrange transition-colors">
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label for="device-type" class="block text-xs font-bold uppercase tracking-wider text-gray-300 mb-1.5">Equipamento</label>
+                                    <select id="device-type" 
+                                            class="w-full px-4 py-3 rounded-xl bg-matteBlack border border-gray-600 text-white focus:outline-none focus:border-techOrange transition-colors">
+                                        <option value="Celular / Smartphone">📱 Celular / Smartphone</option>
+                                        <option value="Notebook">💻 Notebook</option>
+                                        <option value="Computador / PC">🖥️ Computador / PC</option>
+                                        <option value="Outro Dispositivo">🔧 Outro Dispositivo</option>
+                                    </select>
+                                </div>
+
+                                <div>
+                                    <label for="service-type" class="block text-xs font-bold uppercase tracking-wider text-gray-300 mb-1.5">Tipo de Serviço</label>
+                                    <select id="service-type" 
+                                            class="w-full px-4 py-3 rounded-xl bg-matteBlack border border-gray-600 text-white focus:outline-none focus:border-techOrange transition-colors">
+                                        <option value="Manutenção de Hardware">Manutenção de Hardware</option>
+                                        <option value="Software e Suporte Técnico">Software e Suporte Técnico</option>
+                                        <option value="Assistência Urgente 24h">🚨 Assistência Urgente 24h</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label for="problem-desc" class="block text-xs font-bold uppercase tracking-wider text-gray-300 mb-1.5">Descreva o Problema</label>
+                                <textarea id="problem-desc" rows="3" required placeholder="Ex: Tela quebrada, notebook muito lento, não liga, precisa formatar..."
+                                          class="w-full px-4 py-3 rounded-xl bg-matteBlack border border-gray-600 text-white placeholder-gray-500 focus:outline-none focus:border-techOrange transition-colors"></textarea>
+                            </div>
+
+                            <button type="submit" 
+                                    class="w-full flex items-center justify-center gap-3 bg-techOrange hover:bg-techOrangeHover text-white font-extrabold text-base py-4 px-6 rounded-xl orange-glow">
+                                <i class="fa-brands fa-whatsapp text-2xl"></i>
+                                <span>Enviar Solicitação pelo WhatsApp</span>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ==================== RODAPÉ ==================== -->
+    <footer class="bg-matteBlack border-t border-graphiteGray py-10">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+            <div>
+                <div class="flex items-center justify-center md:justify-start gap-2">
+                    <span class="font-tech font-extrabold text-2xl text-white">GW <span class="text-techOrange">STORE</span></span>
+                    <span class="text-xs px-2 py-0.5 rounded bg-graphiteGray text-techOrange font-bold">TI 24H</span>
+                </div>
+                <p class="text-xs text-gray-400 mt-1">
+                    Técnico em TI | Manutenção de Celulares, Notebooks e Computadores
+                </p>
+            </div>
+
+            <div class="text-center">
+                <p class="font-tech font-bold text-sm sm:text-base text-techOrange tracking-wider">
+                    TECNOLOGIA, CONFIANÇA E SOLUÇÕES AO SEU ALCANCE!
+                </p>
+                <p class="text-xs text-gray-500 mt-1">
+                    &copy; <span id="current-year"></span> GW STORE – Manutenção e Suporte Técnico. Todos os direitos reservados.
+                </p>
+            </div>
+
+            <div class="text-center">
+                <p class="font-tech font-bold text-sm sm:text-base text-techOrange tracking-wider">
+                    TECNOLOGIA, CONFIANÇA E SOLUÇÕES AO SEU ALCANCE!
+                </p>
+                <p class="text-xs text-gray-500 mt-1">
+                    &copy; <span id="current-year"></span> GW STORE – YUDI TECH. Todos os direitos reservados.
+                </p>
+            </div>
+
+            <div>
+                <a href="https://wa.me/5592995305578" target="_blank" rel="noopener noreferrer" 
+                   class="inline-flex items-center gap-2 text-sm font-bold text-white hover:text-techOrange transition-colors">
+                    <i class="fa-brands fa-whatsapp text-techOrange text-lg"></i>
+                    <span>(92) 99530-5578</span>
+                </a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ==================== BOTÃO FLUTUANTE WHATSAPP ==================== -->
+    <a href="https://wa.me/5592995305578" target="_blank" rel="noopener noreferrer" 
+       aria-label="Falar com a GW STORE no WhatsApp"
+       class="fixed bottom-6 right-6 z-50 flex items-center gap-3 bg-techOrange hover:bg-techOrangeHover text-white font-bold px-4 py-3.5 sm:px-5 sm:py-4 rounded-full shadow-2xl orange-glow group">
+        <i class="fa-brands fa-whatsapp text-2xl sm:text-3xl"></i>
+        <span class="hidden sm:inline text-sm tracking-wide">Suporte 24h</span>
+    </a>
+
+    <!-- ==================== SCRIPTS INTERATIVOS ==================== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Atualizar ano automaticamente no rodapé
+            const yearEl = document.getElementById('current-year');
+            if (yearEl) {
+                yearEl.textContent = new Date().getFullYear();
+            }
+
+            // Controle do Menu Mobile
+            const mobileBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const menuIcon = document.getElementById('menu-icon');
+            const mobileLinks = document.querySelectorAll('.mobile-link');
+
+            if (mobileBtn && mobileMenu) {
+                mobileBtn.addEventListener('click', () => {
+                    const isHidden = mobileMenu.classList.contains('hidden');
+                    if (isHidden) {
+                        mobileMenu.classList.remove('hidden');
+                        menuIcon.classList.remove('fa-bars');
+                        menuIcon.classList.add('fa-xmark');
+                    } else {
+                        mobileMenu.classList.add('hidden');
+                        menuIcon.classList.remove('fa-xmark');
+                        menuIcon.classList.add('fa-bars');
+                    }
+                });
+
+                // Fechar menu ao clicar em um link
+                mobileLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        mobileMenu.classList.add('hidden');
+                        menuIcon.classList.remove('fa-xmark');
+                        menuIcon.classList.add('fa-bars');
+                    });
+                });
+            }
+
+            // Animação Scroll Reveal suave
+            const revealElements = document.querySelectorAll('.reveal');
+            const revealOnScroll = () => {
+                const windowHeight = window.innerHeight;
+                revealElements.forEach(el => {
+                    const elementTop = el.getBoundingClientRect().top;
+                    if (elementTop < windowHeight - 80) {
+                        el.classList.add('active');
+                    }
+                });
+            };
+            window.addEventListener('scroll', revealOnScroll);
+            revealOnScroll(); // Executar na carga inicial
+
+            // Formulário inteligente que redireciona para o WhatsApp com mensagem formatada
+            const whatsappForm = document.getElementById('whatsapp-form');
+            if (whatsappForm) {
+                whatsappForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    try {
+                        const name = document.getElementById('client-name').value.trim();
+                        const device = document.getElementById('device-type').value;
+                        const service = document.getElementById('service-type').value;
+                        const problem = document.getElementById('problem-desc').value.trim();
+
+                        const message = `Olá, *GW STORE*! Gostaria de solicitar um atendimento técnico.\n\n` +
+                                        `👤 *Nome:* ${name}\n` +
+                                        `📱 *Equipamento:* ${device}\n` +
+                                        `🔧 *Serviço:* ${service}\n` +
+                                        `📝 *Problema:* ${problem}`;
+
+                        const encodedMessage = encodeURIComponent(message);
+                        const whatsappUrl = `https://wa.me/5592995305578?text=${encodedMessage}`;
+                        
+                        window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+                    } catch (error) {
+                        window.open('https://wa.me/5592995305578', '_blank', 'noopener,noreferrer');
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
